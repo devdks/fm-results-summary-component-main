@@ -1,7 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+:root{
+    --p-light-red: hsl(0, 100%, 67%);
+    --p-orangey-yellow: hsl(39, 100%, 56%);
+    --p-green-teal: hsl(166, 100%, 37%);
+    --p-cobalt-blue: hsl(234, 85%, 45%);
+    --pale-blue: hsl(221, 100%, 96%);
+    --light-lavender: hsl(241, 100%, 89%);
+    --dark-gray-blue: hsl(224, 30%, 27%);
+    --hanken-grotesk: "Hanken Grotesk", sans-serif;
+}
+
 *,
 *::after,
 *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+    font-family: var(--hanken-grotesk);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 0;
+}
+
+.result, .summary {
+    flex: 1;
+}
+
+
+/* result class & children style */
+.result {
+    width: 100%;
+    max-height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5em;
+    background: linear-gradient(180deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    border-radius: 0 0 10% 10%;
+    color: var(--light-lavender);
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    background: linear-gradient(180deg, hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    gap: 0.25em;
+}
+
+.score strong {
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+}
+
+.score span {
+    margin-bottom: 1em;
+    color: hsla(241, 100%, 89%, 0.5);
+}
+
+.score-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+.score-text strong {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.score-text p {
+    text-align: center;
+    font-size: 16px;
+}
+
+/* summary class & children style */
+.summary {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: .75em;
+    padding: 1em 1.5em;
+    font-size: 16px;
+}
+
+.summary p {
+    font-weight: 700;
+    margin-bottom: auto;
+}
+
+.category {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em .75em;
+    border-radius: 10px;
+}
+
+.category-name-icon {
+    display: flex;
+    gap: .5rem;
+    font-size: 18px;
+}
+
+.reaction {
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.reaction > .category-name-icon {
+    color: hsla(0, 100%, 67%, 0.8);
+}
+
+.memory {
+    background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+.memory > .category-name-icon {
+    color: hsla(39, 100%, 56%, 0.8);
+}
+
+.verbal {
+    background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+.verbal > .category-name-icon {
+    color: hsla(166, 100%, 37%, 0.8);
+}
+
+.visual {
+    background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+.visual > .category-name-icon {
+    color: hsla(234, 85%, 45%, 0.8);
+}
+
+.category strong {
+    color: hsl(224, 30%, 27%);
+    font-weight: 800;
+}
+
+.category span {
+    color: gray;
+}
+
+button {
+    background-color: hsl(224, 30%, 27%);
+    color: white;
+    padding: 1em;
+    border-radius: 3em;
+    margin-top: auto;
+}
+
+.attribution { 
+    display: none;
+    font-size: 11px;
+    text-align: center;
+    position: absolute;
+    bottom: 3em;
+ }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media all and (min-width: 426px) {
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        flex-direction: row;
+        max-width: 60%;
+        max-height: 50%;
+        z-index: 10;
+        border-radius: 2em;
+        box-shadow: 10px 10px 4em rgba(0, 0, 0, 0.3);
+    }
+
+    .result {
+        max-height: 100%;
+        border-radius: 10%;
+        padding: .75em 1.5em;
+    }
+
+    .summary {
+        border-radius: 0 10% 10% 0;
+    }
+}
+
+@media all and (min-width: 426px) and (max-width: 767px) {
+    .container {
+        max-width: 80%;
+        max-height: 60%;
+    }
+
+    .result {
+        padding: .75em 1.5em;
+    }
+}
+
+@media all and (min-width:768px) {
+    .attribution {
+        display: block;
+    }
+}
+
+@media all and (min-width: 1440px) {
+
+    .container {
+        max-width: 50%;
+        max-height: 60%;
+    }
+
+    .result {
+        padding: 1.7em 1.5em;
+    }
+
+    .summary {
+        padding: 2em 1.5em;
+    }
+
+    .score-text {
+        padding: 0 1em;
+    }
 }
